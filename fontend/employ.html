@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <!-- Bootstrap 5 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Ionicons for icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            font-family: 'Tektur', cursive;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+        .btn {
+            margin-left: 5px;
+        }
+        input::placeholder {
+            font-size: 15px;
+            color: #d3d3d3;
+        }
+        .visibility-toggle {
+            background: none;
+            padding: 0;
+            margin: 0;
+        }
+        /* Custom styles for modal */
+        .modal-dialog {
+            margin: auto;
+            max-width: 80%;
+        }
+        .modal-content {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Employee Email ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>john.doe@example.com</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="editEmployee(1)">Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(1)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>jane.smith@example.com</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="editEmployee(2)">Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(2)">Delete</button>
+                    </td>
+                </tr>
+                <!-- More rows can be added dynamically or fetched from backend -->
+            </tbody>
+        </table>
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="openUploadModal()">Upload New Employee</button>
+        </div>
+    </div>
+
+    <!-- Modal for Upload Employee Data -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadModalLabel">Upload New Employee Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Form for uploading employee data -->
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="serialNumber" class="form-label">Employee ID</label>
+                            <input type="text" class="form-control" id="serialNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeName" class="form-label">Employee Name</label>
+                            <input type="text" class="form-control" id="employeeName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeEmail" class="form-label">Employee Email</label>
+                            <input type="email" class="form-control" id="employeeEmail" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Bootstrap 5 JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+
+    <!-- JavaScript for Modal Control -->
+    <script>
+        function openUploadModal() {
+            var myModal = new bootstrap.Modal(document.getElementById('uploadModal'), {
+                keyboard: false
+            });
+            myModal.show();
+        }
+        function editEmployee(id) {
+            // Placeholder function for editing an employee
+            console.log('Editing employee with ID:', id);
+        }
+        function deleteEmployee(id) {
+            // Placeholder function for deleting an employee
+            console.log('Deleting employee with ID:', id);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- Bootstrap 5 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <!-- Custom Files -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            font-family: 'Tektur', cursive !important;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        input::placeholder {
+            font-size: 15px !important;
+            color: #d3d3d3 !important;
+        }
+        .visibility-toggle {
+            background: none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-sm">
+        <form class="col-12 col-md-6 mx-auto shadow p-4" action="/login_page.php" method="POST">
+            <div class="mb-4 mt-3 border-bottom">
+                <label for="email" class="form-label"> Email: </label>
+                <input type="email" name="email" id="email" class="form-control form-control-lg border-0"
+                    placeholder="Enter email" required />
+            </div>
+            <div class="mb-4 border-bottom">
+                <div class="d-flex justify-content-between align-items-center">
+                    <label for="pwd" class="form-label"> Password: </label>
+                    <button class="btn visibility-toggle border-0" type="button">
+                        <ion-icon name="eye-outline" id="visibility-icon"></ion-icon>
+                    </button>
+                </div>
+                <input type="password" name="pwd" id="pwd" class="form-control form-control-lg border-0"
+                    placeholder="Enter password" minlength="6" maxlength="12" required />
+            </div>
+            <div class="mb-3 mt-3">
+                <label class="form-check-label user-select-none">
+                    <input type="checkbox" name="remember-me" class="form-check-input" />
+                    <span class="mx-1">Remember me</span>
+                </label>
+            </div>
+            <button type="submit" class="d-block w-50 mx-auto btn btn-outline-dark mt-5">Log in</button>
+        </form>
+        
+    </div>
+    <!-- Password visibility toggle script -->
+    <script>
+        const visibilityToggleBtn = document.querySelector(".visibility-toggle");
+        const passwordField = document.querySelector("#pwd");
+        const visibilityIcon = document.querySelector("#visibility-icon");
+
+        visibilityToggleBtn.addEventListener("click", () => {
+            if (passwordField.type === "password") {
+                passwordField.setAttribute("type", "text");
+                visibilityIcon.setAttribute("name", "eye-off-outline");
+            } else {
+                passwordField.setAttribute("type", "password");
+                visibilityIcon.setAttribute("name", "eye-outline");
+            }
+        });
+    </script>
+</body>
+</html>
